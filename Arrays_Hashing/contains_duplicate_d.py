@@ -1,4 +1,10 @@
-from typing import List, Set
+"""
+Given an integer array nums, return True
+if any value appears more than once in the array,
+otherwise return False.
+"""
+
+from typing import List
 
 
 class Solution:
@@ -11,15 +17,19 @@ class Solution:
         else:
             return False
 
+
 duplicate = Solution()
 input1 = [1, 2, 3, 3]
 input2 = [1, 2, 3, 4]
 print(f"Contains duplicate: {duplicate.hasDuplicate(nums=input1)}")
 print(f"Contains duplicate: {duplicate.hasDuplicate(nums=input2)}")
 
+
 """
 Time complexity O(n), Space: O(n)
 """
+
+
 class Solution2:
     def hasDuplicate2(self, nums: List[int]) -> bool:
         set_nu: set = set()
