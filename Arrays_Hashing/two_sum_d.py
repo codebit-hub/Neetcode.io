@@ -17,10 +17,11 @@ from typing import List
 
 
 """
-Solution1: 
+Solution1:
     Time: O(n^2)
     Space: O(1)
 """
+
 
 class Solution1:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -28,6 +29,7 @@ class Solution1:
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
                     return [i, j]
+        return []
 
 
 solution1 = Solution1()
@@ -36,7 +38,7 @@ nums2 = [4, 5, 6]
 nums3 = [5, 5]
 target1 = 7
 target2 = 10
-target3 = 10
+target3 = 12
 print(f"Output1: {solution1.twoSum(nums=nums1, target=target1)}")
 print(f"Output2: {solution1.twoSum(nums=nums2, target=target2)}")
 print(f"Output3: {solution1.twoSum(nums=nums3, target=target3)}")
@@ -48,15 +50,19 @@ Solution2:
     Space: O(1)
 """
 
+
 class Solution2:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
+        seen: dict[int, int] = {}
 
         for i, nu in enumerate(nums):
             complement = target - nu
             if complement in seen:
                 return [seen[complement], i]
             seen[nu] = i
+
+        return []
+
 
 solution2 = Solution2()
 nums4 = [3, 4, 5, 6]
