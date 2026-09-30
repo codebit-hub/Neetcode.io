@@ -5,6 +5,7 @@ Two strings are anagrams if they contain the same characters,
 with each character appearing the same number of times, regardless of order.
 """
 
+
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if sorted(s) == sorted(t):
