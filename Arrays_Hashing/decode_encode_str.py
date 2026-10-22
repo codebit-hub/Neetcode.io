@@ -53,26 +53,48 @@ Constraints:
 strs[i] contains any possible characters out of 256 valid ASCII characters
 """
 
+
 class Solution:
     def encode(self, strs: list[str]) -> str:
-        encoded_strs: str = ""
-        for s in strs:
-            s_len = len(s)
-            # encoded_strs += str(s_len) + '#' + s
-            encoded_strs += '<' + str(s_len) + '>' + s
-        return encoded_strs
+        # normal approach
+        # encoded_strs: str = ""
+        # for s in strs:
+        #     s_len = len(s)
+        #     # encoded_strs += str(s_len) + '#' + s
+        #     encoded_strs += '<' + str(s_len) + '>' + s
+        # return encoded_strs
+
+        # pythonic approach
+        return "".join(f"<{len(s)}>{s}" for s in strs)
 
     def decode(self, s: str) -> list[str]:
-        split_lists = []
-        i = 0
+        # normal approach
+        # split_lists = []
+        # i = 0
+
+        # while i < len(s):
+        #     j = i
+        #     while s[j] != ">":
+        #         j += 1
+        #     s_len = int((s[i:j]).strip('<'))
+        #     split_lists.append(s[j + 1 : j + 1 + s_len])
+        #     i = j + 1 + s_len
+        # return split_lists
+
+        # python approach
+        split_lists: list[str] = []
+        i: int = 0
 
         while i < len(s):
-            j = i
-            while s[j] != ">":
-                j += 1
-            s_len = int((s[i:j]).strip('<'))
-            split_lists.append(s[j + 1 : j + 1 + s_len])
-            i = j + 1 + s_len
+            end: int = s.find(">", i)
+            if end == -1:
+                break
+
+            length = int(s[i + 1:end])
+            start = end + 1
+            split_lists.append(s[start:start + length])
+            i = start + length
+
         return split_lists
 
 
