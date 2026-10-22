@@ -58,6 +58,9 @@ class Solution:
 
         res: list[int] = []
         for i in range(len(nums), 0, -1):
+            # Sorted listing of top frequencies
+            # for num in sorted(freq[i], reverse=True):
+            # Unsorted listing of top frequencies
             for num in freq[i]:
                 res.append(num)
                 if len(res) == k:
@@ -66,11 +69,11 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums1: list[int] = [1, 2, 2, 2, 3, 3, 4, 5, 5]
-    k1: int = 4
+    nums1: list[int] = [1, 2, 2, 2, 4, 4, 3, 3, 5, 5, 7, 7, 7]
+    k1: int = 3
 
     nums2: list[int] = [7, 7]
-    k2: int = -3
+    k2: int = 1
 
     print(f"Output1: {Solution().topKFrequent(nums1, k1)}")
     print(f"Output2: {Solution().topKFrequent(nums2, k2)}")
