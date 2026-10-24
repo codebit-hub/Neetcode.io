@@ -1,4 +1,8 @@
-"""Given two strings s and t, return true if the two strings are anagrams
+"""
+isAnagram
+Easy
+
+Given two strings s and t, return true if the two strings are anagrams
 of each other, otherwise return false.
 
 Two strings are anagrams if they contain the same characters,

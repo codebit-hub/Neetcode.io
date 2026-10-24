@@ -1,9 +1,7 @@
 """
 Products of Array Except Self
 Medium
-Topics
-Company Tags
-Hints
+
 Given an integer array nums, return an array output where output[i] is
 the product of all the elements of nums except nums[i].
 
@@ -76,9 +74,6 @@ class Solution2:
             right *= nums[i]
 
         return result_lst
-
-
-
 
 
 nums1 = [1, 2, 3, 4]
